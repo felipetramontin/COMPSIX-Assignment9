@@ -28,6 +28,14 @@ const User = db.define('User', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'employee',
+        validate: {
+            isIn: [['employee', 'manager', 'admin']]
+        }
+    }
     // TODO: Add role field (employee, manager, admin)
 });
 
